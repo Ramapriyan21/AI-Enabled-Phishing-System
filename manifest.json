@@ -3,7 +3,6 @@
   "name": "Cyber Project",
   "version": "1.0",
   "description": "A phishing detector plugin",
-  },
   "permissions": [
     "activeTab",
     "declarativeContent",
