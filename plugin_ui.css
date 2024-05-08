@@ -1,8 +1,8 @@
 html {
-    height: 490px;
+    height: 350px;
 }
 body {
-    width: 480px;
+    width: 400px;
     margin: 0 auto;
     padding: 10px;
     margin: 10px;
@@ -41,15 +41,7 @@ body {
   content: "";
   background: linear-gradient(
     45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
+
   );
   position: absolute;
   
