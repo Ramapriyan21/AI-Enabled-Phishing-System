@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Cyber Project",
   "version": "1.0",
-  "description": "A phishing detector plugin",
+  "description": "AI Enabled Phishing Detector",
   "permissions": [
     "activeTab",
     "declarativeContent",
