@@ -108,7 +108,6 @@ body {
   animation: typing 2s steps(15), cursor 0.4s step-end infinite alternate;
 }
  
-/* cursor bliniking */
 @keyframes cursor{
   50% { border-color: transparent;}
 }
