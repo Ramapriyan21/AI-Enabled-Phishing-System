@@ -40,7 +40,7 @@ st.title("Phishing Detection System")
 
 input_sms = st.text_area("Enter your message here:")
 
-if st.button('Predict'):
+if st.button('View Results'):
 
     # 1. preprocess
     transformed_sms = transform_text(input_sms)
