@@ -27,7 +27,7 @@
         "https://*/*"
       ],
       "js": [
-        "js/jquery.js"
+        "jquery.js"
       ]
     }
   ]
