@@ -49,27 +49,27 @@
 }
 
 .precision {
-    background : #00ff00;
+    background : #808080;
     animation : percision 1s linear forwards;
 }
 .recall {
-    background : #00ff00;
+    background : #808080;
     animation : recall 1s linear forwards;
 }
 .accuracy {
-    background : #00ff00;
+    background : #808080;
     animation : accuracy 1s linear forwards;
 }
 
 .precision span{
-    border : 1px solid #00ff00;
+    border : 1px solid #808080;
 
 }
 .recall span{
-    border : 1px solid #00ff00;
+    border : 1px solid #808080;
 }
 .accuracy span{
-    border : 1px solid #00ff00;
+    border : 1px solid #808080;
 }
 .plugin_name.h1 {
     text-shadow: 1px 1px 1px #919191,
@@ -89,7 +89,7 @@
 }
   
 
-@keyframes percision {
+@keyframes precision {
     100%{
         width : 97%;
     }
