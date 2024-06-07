@@ -1,8 +1,8 @@
 import streamlit as st
 import pickle
 import string
-import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
+import pandas as pd
 from nltk.corpus import stopwords
 import nltk
 from nltk.stem.porter import PorterStemmer
@@ -29,29 +29,36 @@ def transform_text(text):
 
     return " ".join(y)
 
-# Load model
-model = pickle.load(open('model.pkl', 'rb'))
+# Load the training data
+# Uncomment and modify the next line if you need to fit the vectorizer
+# train_data = pd.read_csv('path_to_training_data.csv')
 
-# Ensure TF-IDF Vectorizer is properly initialized and fitted
-# Load your training data
-# train_data = pd.read_csv('path_to_training_data.csv')['text_column_name']
+# Initialize and fit the TF-IDF vectorizer if it's not already fitted
+# Uncomment the next lines if you are fitting the vectorizer here
 # tfidf = TfidfVectorizer()
-# tfidf.fit(train_data)
+# tfidf.fit(train_data['text_column_name'])  # Make sure to replace 'text_column_name' with your actual text column
 
-# Or load a pre-fitted TF-IDF Vectorizer if available
+# Save the fitted vectorizer (optional, only if you're fitting it here)
+# Uncomment the next line if you need to save the fitted vectorizer
+# pickle.dump(tfidf, open('vectorizer.pkl', 'wb'))
+
+# Load the fitted vectorizer
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
+
+# Load the classification model
+model = pickle.load(open('model.pkl', 'rb'))
 
 st.title("Phishing Detection System")
 input_sms = st.text_area("Enter your message here:")
 
 if st.button('View Results'):
-    # 1. preprocess
+    # Preprocess the input
     transformed_sms = transform_text(input_sms)
-    # 2. vectorize
+    # Vectorize the preprocessed input
     vector_input = tfidf.transform([transformed_sms])
-    # 3. predict
+    # Predict using the loaded model
     result = model.predict(vector_input)[0]
-    # 4. Display
+    # Display the result
     if result == 1:
         st.header("Spam")
     else:
