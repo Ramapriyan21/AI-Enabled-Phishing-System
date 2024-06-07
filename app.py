@@ -1,6 +1,8 @@
 import streamlit as st
 import pickle
 import string
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.corpus import stopwords
 import nltk
 from nltk.stem.porter import PorterStemmer
@@ -23,25 +25,26 @@ def transform_text(text):
 
     for i in text:
         if i not in stopwords.words('english') and i not in string.punctuation:
-            y.append(i)
-
-    text = y[:]
-    y.clear()
-
-    for i in text:
-        y.append(ps.stem(i))
+            y.append(ps.stem(i))
 
     return " ".join(y)
 
-tfidf = pickle.load(open('vectorizer.pkl','rb'))
-model = pickle.load(open('model.pkl','rb'))
+# Load model
+model = pickle.load(open('model.pkl', 'rb'))
+
+# Ensure TF-IDF Vectorizer is properly initialized and fitted
+# Load your training data
+# train_data = pd.read_csv('path_to_training_data.csv')['text_column_name']
+# tfidf = TfidfVectorizer()
+# tfidf.fit(train_data)
+
+# Or load a pre-fitted TF-IDF Vectorizer if available
+tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
 
 st.title("Phishing Detection System")
-
 input_sms = st.text_area("Enter your message here:")
 
 if st.button('View Results'):
-
     # 1. preprocess
     transformed_sms = transform_text(input_sms)
     # 2. vectorize
