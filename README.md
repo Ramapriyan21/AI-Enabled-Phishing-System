@@ -72,5 +72,10 @@ You can extend the system by:
 - The accuracy of the model depends on the quality of the training data.
 - A strong internet connection is required for some front-end features (e.g., loading external JavaScript libraries).
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+
 
 
